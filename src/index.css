@@ -20,7 +20,7 @@
 
 @layer base {
   body {
-    @apply bg-corp-bg text-corp-grey-dark selection:bg-corp-red/20;
+    @apply m-0 bg-corp-bg text-corp-grey-dark selection:bg-corp-red/20;
   }
   .dark body {
     @apply bg-corp-dark-bg text-white selection:bg-corp-red/40;
