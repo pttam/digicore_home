@@ -44,6 +44,10 @@ export interface Translations {
   about: {
     title: string;
     content: string;
+    features: {
+      security: { title: string; desc: string };
+      heritage: { title: string; desc: string };
+    };
   };
   ctaBanner: {
     title: string;
@@ -99,14 +103,18 @@ export const translations: Record<Language, Translations> = {
     caseStudies: {
       title: 'Case Studies & Success Stories',
       items: [
-        { title: 'Global Financial Logistics', desc: 'Scaling data infrastructure for multi-regional enterprise deployment.', cta: 'Read Full Story' },
-        { title: 'Predictive Supply Chain', desc: 'Implementing real-time demand forecasting, reducing inventory overhead by 25%.', cta: 'Read Full Story' },
-        { title: 'Zero-Trust AI Security', desc: 'Hardening LLM deployments to meet strict banking compliance standards.', cta: 'Read Full Story' }
+        { title: 'Global Financial Logistics', desc: 'Scaling data infrastructure for multi-regional enterprise deployment. Optimizing vertical clusters for high-performance throughput.', cta: 'Read Full Story' },
+        { title: 'Predictive Supply Chain', desc: 'Implementing real-time demand forecasting for a Fortune 500 retailer, reducing inventory overhead by 25%.', cta: 'Read Full Story' },
+        { title: 'Zero-Trust AI Security', desc: 'Hardening LLM deployments with custom orchestration layers to meet strict banking compliance standards.', cta: 'Read Full Story' }
       ]
     },
     about: {
       title: 'Hong Kong-Based Experts in AI and Data Security',
       content: 'Founded in Hong Kong by data scientists and cybersecurity specialists, Digicore fuses deep analytics with a security-by-design mindset.',
+      features: {
+        security: { title: 'Security', desc: 'Enterprise-grade protection with HK-based data sovereignty.' },
+        heritage: { title: 'Heritage', desc: 'Founded by industry veterans in Hong Kong.' }
+      }
     },
     ctaBanner: {
       title: 'Ready to Transform Your Data?',
@@ -160,14 +168,18 @@ export const translations: Record<Language, Translations> = {
     caseStudies: {
       title: '案例研究與成功故事',
       items: [
-        { title: '全球金融物流', desc: '為多區域企業部署擴展數據基礎設施。', cta: '閱讀完整故事' },
-        { title: '預測性供應鏈', desc: '實施實時需求預測，將庫存開銷減少了 25%。', cta: '閱讀完整故事' },
-        { title: '零信任 AI 安全', desc: '加固 LLM 部署，以滿足嚴格的銀行合規標準。', cta: '閱讀完整故事' }
+        { title: '全球金融物流', desc: '為多區域企業部署擴展數據基礎設施。優化垂直集群以實現高性能吞吐量。', cta: '閱讀完整故事' },
+        { title: '預測性供應鏈', desc: '為財富 500 強零售商實施實時需求預測，將庫存開銷減少了 25%。', cta: '閱讀完整故事' },
+        { title: '零信任 AI 安全', desc: '使用自定義編排層加固 LLM 部署，以滿足嚴格的銀行合規標準。', cta: '閱讀完整故事' }
       ]
     },
     about: {
       title: '香港的人工智能和數據安全專家',
       content: '由數據科學家和網絡安全專家在香港創立，Digicore 將深度分析與安全設計思維相結合。',
+      features: {
+        security: { title: '安全保障', desc: '提供基於香港數據主權的企業級保護。' },
+        heritage: { title: '產業傳承', desc: '由香港資深產業專家創立。' }
+      }
     },
     ctaBanner: {
       title: '準備好將您的數據轉化為洞察了嗎？',
@@ -194,7 +206,7 @@ export const translations: Record<Language, Translations> = {
     },
     valueProp: {
       title: 'Differenzierungsmerkmale',
-      philosophy: '"Unsere Philosophie ist einfach: Architektur bestimmt Ergebnisse."',
+      philosophy: '"Unsere Philosophie ist einfach: Architektur bestimmt Ergebnisse. Wir bauen Brücken zwischen komplexen Daten und klaren Entscheidungen."',
       items: [
         { title: 'Sofortige Skalierbarkeit', desc: 'In Minuten bereitstellen mit unserer Cloud-native-Microservices-Architektur.' },
         { title: 'Vorhersagegenauigkeit', desc: '95%+ Genauigkeit mit vorgefertigten Modellen für Finanzrisiken.' },
@@ -229,6 +241,10 @@ export const translations: Record<Language, Translations> = {
     about: {
       title: 'Hongkong-basierte Experten für KI',
       content: 'Gegründet in Hongkong verbindet Digicore Analyseexpertise mit Sicherheit.',
+      features: {
+        security: { title: 'Sicherheit', desc: 'Unternehmensschutz mit Datenhoheit in Hongkong.' },
+        heritage: { title: 'Erbe', desc: 'Gegründet von Branchenveteranen in Hongkong.' }
+      }
     },
     ctaBanner: {
       title: 'Bereit, Ihre Daten zu verwandeln?',

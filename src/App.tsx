@@ -40,7 +40,7 @@ export default function App() {
   return (
     <div className={`min-h-screen transition-colors duration-500 font-sans ${isDark ? 'bg-corp-dark-bg text-white dark' : 'bg-white text-corp-grey-dark'}`}>
       
-      {/* HEADER: Solid white background */}
+      {/* HEADER */}
       <nav className="relative w-full z-50 py-6 bg-white border-b border-corp-grey-light shadow-sm">
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center">
@@ -79,7 +79,7 @@ export default function App() {
       </nav>
 
       <main className="relative z-10">
-        {/* HERO IMAGE */}
+        {/* HERO IMAGE SECTION */}
         <div className="relative h-[50vh] w-full overflow-hidden bg-corp-grey-light">
           <div 
             className="absolute inset-0 w-full h-full bg-cover bg-center" 
@@ -87,7 +87,7 @@ export default function App() {
           />
         </div>
 
-        {/* HERO CONTENT: White overlap card */}
+        {/* HERO CONTENT CARD */}
         <div className="relative z-20 max-w-7xl mx-auto px-6">
           <div className="relative -mt-[25vh]"> 
             <div className="w-full max-w-5xl mx-auto bg-white p-10 md:p-16 rounded-lg shadow-2xl border border-corp-grey-light">
@@ -161,7 +161,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* SOLUTIONS */}
+        {/* SOLUTIONS OVERVIEW */}
         <section id="solutions" className="section-container mb-24">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-display font-bold mb-6">{t.solutions.title}</h2>
@@ -185,13 +185,12 @@ export default function App() {
             ))}
           </div>
 
-          {/* FLAGSHIP PRODUCT HEADING */}
+          {/* FLAGSHIP PRODUCT SECTION */}
           <div className="text-center mb-16">
             <h2 className="text-4xl font-display font-bold mb-6">{t.product.sectionHeading}</h2>
             <div className="accent-line mx-auto mb-8" />
           </div>
 
-          {/* TOKENPIAZZA CARD */}
           <div className="bg-white dark:bg-white/5 p-8 md:p-12 border border-corp-red/20 rounded-xl shadow-sm">
             <div className="flex flex-col lg:flex-row gap-12">
               <div className="lg:w-1/2">
@@ -230,7 +229,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* CASE STUDIES: Mapping from t.caseStudies.items */}
+        {/* CASE STUDIES SECTION */}
         <section id="case-studies" className="section-container bg-corp-grey-light dark:bg-white/5 rounded-3xl py-24 mb-24 px-12">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-display font-bold mb-6">{t.caseStudies.title}</h2>
@@ -253,7 +252,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* ABOUT */}
+        {/* ABOUT SECTION */}
         <section id="about" className="section-container border-t border-corp-grey-light dark:border-white/10 pt-32 pb-24">
           <div className="grid lg:grid-cols-2 gap-16">
             <div>
@@ -265,15 +264,17 @@ export default function App() {
             <div>
               <p className="text-xl text-corp-grey dark:text-gray-400 leading-relaxed mb-12">{t.about.content}</p>
               <div className="grid grid-cols-2 gap-12">
+                {/* Security Card */}
                 <div>
                   <div className="text-corp-red mb-4"><ShieldCheck size={24} /></div>
-                  <h4 className="text-sm font-bold uppercase tracking-widest mb-2">Security</h4>
-                  <p className="text-xs text-corp-grey leading-relaxed">Enterprise-grade protection with HK-based sovereignty.</p>
+                  <h4 className="text-sm font-bold uppercase tracking-widest mb-2">{t.about.features.security.title}</h4>
+                  <p className="text-xs text-corp-grey leading-relaxed">{t.about.features.security.desc}</p>
                 </div>
+                {/* Heritage Card */}
                 <div>
                   <div className="text-corp-red mb-4"><Building2 size={24} /></div>
-                  <h4 className="text-sm font-bold uppercase tracking-widest mb-2">Heritage</h4>
-                  <p className="text-xs text-corp-grey leading-relaxed">Founded by industry veterans in Hong Kong.</p>
+                  <h4 className="text-sm font-bold uppercase tracking-widest mb-2">{t.about.features.heritage.title}</h4>
+                  <p className="text-xs text-corp-grey leading-relaxed">{t.about.features.heritage.desc}</p>
                 </div>
               </div>
             </div>
@@ -307,6 +308,7 @@ export default function App() {
               <p className="text-corp-grey mb-6 tracking-[0.3em]">{t.footer.legal}</p>
               <span className="block">{t.footer.privacy}</span>
               <span className="block">{t.footer.terms}</span>
+              <span className="block">{t.footer.security}</span>
             </div>
           </div>
           <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 text-[8px] font-bold tracking-[0.4em] text-gray-600 uppercase flex justify-between">
