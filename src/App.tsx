@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { useState } from 'react';
+import { motion } from 'motion/react';
 import {
   Building2,
   ShieldCheck,
@@ -40,42 +40,46 @@ export default function App() {
   return (
     <div className={`min-h-screen transition-colors duration-500 font-sans ${isDark ? 'bg-corp-dark-bg text-white dark' : 'bg-white text-corp-grey-dark'}`}>
       
-      {/* HEADER: Solid background, sits above hero */}
-      <nav className="relative w-full z-50 py-6 bg-white dark:bg-corp-dark-bg border-b border-corp-grey-light dark:border-white/5">
+      {/* HEADER: Solid white background */}
+      <nav className="relative w-full z-50 py-6 bg-white border-b border-corp-grey-light shadow-sm">
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center">
-            <img src="/images/logo.png" alt="Digicore logo" className="h-8 object-contain dark:brightness-0 dark:invert" />
+            <img src="/images/logo.png" alt="Digicore logo" className="h-8 object-contain" />
           </motion.div>
 
           <div className="hidden md:flex items-center space-x-10">
             <div className="flex space-x-8">
               {navLinks.map((link) => (
-                <a key={link.name} href={link.href} className="text-xs font-bold uppercase tracking-widest hover:text-corp-red transition-colors">
+                <a key={link.name} href={link.href} className="text-xs font-bold uppercase tracking-widest text-corp-grey-dark hover:text-corp-red transition-colors">
                   {link.name}
                 </a>
               ))}
             </div>
-            <div className="flex items-center space-x-6 border-l border-corp-grey-light dark:border-white/10 pl-6 text-xs uppercase font-bold tracking-widest">
+            <div className="flex items-center space-x-6 border-l border-corp-grey-light pl-6 text-xs uppercase font-bold tracking-widest">
               <div className="flex items-center space-x-3">
                 {(['EN', 'zh-TW', 'DE'] as Language[]).map((l) => (
-                  <button key={l} onClick={() => setLang(l)} className={`transition-colors ${lang === l ? 'text-corp-red' : 'text-corp-grey hover:text-corp-grey-dark dark:hover:text-white'}`}>
+                  <button 
+                    key={l} 
+                    onClick={() => setLang(l)} 
+                    className={`transition-colors ${lang === l ? 'text-corp-red' : 'text-corp-grey hover:text-corp-grey-dark'}`}
+                  >
                     {l}
                   </button>
                 ))}
               </div>
-              <button onClick={toggleTheme} className="p-1 hover:text-corp-red transition-all">
+              <button onClick={toggleTheme} className="p-1 text-corp-grey-dark hover:text-corp-red transition-all">
                 {isDark ? <Sun size={16} /> : <Moon size={16} />}
               </button>
             </div>
           </div>
-          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button className="md:hidden text-corp-grey-dark" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
       </nav>
 
       <main className="relative z-10">
-        {/* HERO IMAGE: 50% Viewport Height */}
+        {/* HERO IMAGE */}
         <div className="relative h-[50vh] w-full overflow-hidden bg-corp-grey-light">
           <div 
             className="absolute inset-0 w-full h-full bg-cover bg-center" 
@@ -83,30 +87,35 @@ export default function App() {
           />
         </div>
 
-        {/* HERO CONTENT: White background overlapping bottom 50% of image */}
+        {/* HERO CONTENT: White overlap card */}
         <div className="relative z-20 max-w-7xl mx-auto px-6">
           <div className="relative -mt-[25vh]"> 
-            <div className="w-full max-w-4xl mx-auto bg-white p-10 md:p-16 rounded-lg shadow-2xl border border-corp-grey-light">
+            <div className="w-full max-w-5xl mx-auto bg-white p-10 md:p-16 rounded-lg shadow-2xl border border-corp-grey-light">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="space-y-6"
+                className="space-y-8"
               >
-                <h1 className="text-3xl md:text-4xl font-display font-bold tracking-tight leading-tight text-corp-grey-dark">
-                  <span className="block">Transform Complex Data</span>
-                  <span className="block text-corp-red">Into Actionable Insights</span>
+                <h1 className="text-4xl md:text-6xl font-display font-bold tracking-tight leading-tight text-corp-grey-dark">
+                   {t.hero.title}
                 </h1>
 
-                <p className="text-sm text-corp-grey max-w-xl leading-relaxed">
+                <p className="text-lg md:text-xl text-corp-grey max-w-3xl leading-relaxed">
                   {t.hero.subtitle}
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <button className="btn-primary px-8 py-3 bg-corp-red text-white font-bold rounded uppercase text-xs tracking-widest">
+                  <button 
+                    className={`px-10 py-4 bg-corp-red text-white font-bold rounded uppercase tracking-widest hover:bg-red-800 transition-colors 
+                    ${lang === 'zh-TW' ? 'text-sm' : 'text-xs'}`}
+                  >
                     {t.hero.cta}
                   </button>
-                  <button className="btn-secondary px-8 py-3 border border-corp-grey-light text-corp-grey-dark font-bold rounded uppercase text-xs tracking-widest">
+                  <button 
+                    className={`px-10 py-4 border border-corp-grey-light text-corp-grey-dark font-bold rounded uppercase tracking-widest hover:bg-gray-50 transition-colors 
+                    ${lang === 'zh-TW' ? 'text-sm' : 'text-xs'}`}
+                  >
                     {t.hero.secondaryCta}
                   </button>
                 </div>
@@ -115,7 +124,7 @@ export default function App() {
           </div>
         </div>
 
-        {/* STATS SECTION */}
+        {/* STATS */}
         <div className="max-w-7xl mx-auto px-6 mt-32 grid grid-cols-2 md:grid-cols-4 gap-12 border-t border-corp-grey-light dark:border-white/10 pt-16">
           {[
             { label: 'Latency Rate', value: '< 20ms' },
@@ -130,23 +139,8 @@ export default function App() {
           ))}
         </div>
 
-        {/* CLIENT LOGOS */}
-        <section id="clients" className="section-container py-24">
-          <div className="text-center mb-16">
-            <h2 className="text-xl font-bold uppercase tracking-widest text-corp-grey mb-4">{t.clientLogos.title}</h2>
-            <div className="accent-line mx-auto" />
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-6 gap-8 items-center opacity-50 grayscale dark:invert">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="h-10 flex items-center justify-center">
-                <span className="text-xs font-bold text-corp-grey">PARTNER {i+1}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* DIFFERENTIATORS */}
-        <section id="values" className="section-container bg-corp-grey-light dark:bg-white/5 rounded-3xl mb-24 py-20 px-12">
+        <section id="values" className="section-container bg-corp-grey-light dark:bg-white/5 rounded-3xl mt-32 mb-24 py-20 px-12">
           <div className="grid lg:grid-cols-3 gap-16">
             <div className="lg:col-span-1">
               <h2 className="text-4xl font-display font-bold mb-6">{t.valueProp.title}</h2>
@@ -167,7 +161,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* SOLUTIONS & TOKENPIAZZA CARD */}
+        {/* SOLUTIONS */}
         <section id="solutions" className="section-container mb-24">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-display font-bold mb-6">{t.solutions.title}</h2>
@@ -175,7 +169,7 @@ export default function App() {
             <p className="text-xl text-corp-grey dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">{t.solutions.subtitle}</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 mb-24">
             {t.solutions.items.map((solution, i) => (
               <div key={solution.title} className="bg-white dark:bg-white/5 p-8 border border-corp-grey-light dark:border-white/10 rounded-xl shadow-sm">
                 <div className="flex items-start space-x-4">
@@ -184,66 +178,74 @@ export default function App() {
                   </div>
                   <div>
                     <h3 className="text-xl font-display font-bold mb-3">{solution.title}</h3>
-                    <p className="text-corp-grey dark:text-gray-400 leading-relaxed">{solution.desc}</p>
+                    <p className="text-sm text-corp-grey dark:text-gray-400 leading-relaxed">{solution.desc}</p>
                   </div>
                 </div>
               </div>
             ))}
+          </div>
 
-            {/* TOKENPIAZZA PRODUCT CARD */}
-            <div className="md:col-span-2 bg-white dark:bg-white/5 p-8 md:p-12 border border-corp-red/20 rounded-xl shadow-sm">
-              <div className="flex flex-col lg:flex-row gap-12">
-                <div className="lg:w-1/2">
-                  <div className="text-corp-red mb-4"><BarChart3 size={32} /></div>
-                  <h3 className="text-2xl font-display font-bold mb-4">TokenPiazza</h3>
-                  <p className="text-corp-grey dark:text-gray-400 mb-6 leading-relaxed">{t.product.desc}</p>
-                  <div className="grid sm:grid-cols-2 gap-4 mb-8">
-                    {t.product.features.map(f => (
-                      <div key={f} className="flex items-center text-sm font-bold uppercase tracking-wider">
-                        <ArrowUpRight size={16} className="text-corp-red mr-3" /> {f}
-                      </div>
-                    ))}
-                  </div>
-                  <button className="flex items-center space-x-2 text-corp-red group font-bold border-b-2 border-corp-red pb-1">
-                    <span>Enterprise Dashboard Access</span>
-                    <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                  </button>
+          {/* FLAGSHIP PRODUCT HEADING */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-display font-bold mb-6">{t.product.sectionHeading}</h2>
+            <div className="accent-line mx-auto mb-8" />
+          </div>
+
+          {/* TOKENPIAZZA CARD */}
+          <div className="bg-white dark:bg-white/5 p-8 md:p-12 border border-corp-red/20 rounded-xl shadow-sm">
+            <div className="flex flex-col lg:flex-row gap-12">
+              <div className="lg:w-1/2">
+                <div className="text-corp-red mb-4"><BarChart3 size={32} /></div>
+                <h3 className="text-2xl font-display font-bold mb-4">{t.product.title}</h3>
+                <p className="text-corp-grey dark:text-gray-400 mb-6 leading-relaxed">{t.product.desc}</p>
+                <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                  {t.product.features.map(f => (
+                    <div key={f} className="flex items-center text-sm font-bold uppercase tracking-wider">
+                      <ArrowUpRight size={16} className="text-corp-red mr-3" /> {f}
+                    </div>
+                  ))}
                 </div>
-                <div className="lg:w-1/2">
-                   <div className="bg-corp-grey-light dark:bg-corp-dark-bg/60 border border-corp-grey-light dark:border-white/5 p-6 rounded-xl aspect-video flex flex-col">
-                      <div className="flex justify-between items-center mb-6 border-b border-corp-grey-light dark:border-white/10 pb-4">
-                        <div className="text-[10px] font-bold text-corp-grey uppercase tracking-widest">Live Matrix // TokenPiazza</div>
-                        <div className="text-[10px] text-green-600 font-bold bg-green-50 px-2 py-1 rounded">SYSTEM ONLINE</div>
-                      </div>
-                      <div className="space-y-4">
-                        <div className="h-2 w-full bg-corp-red/10 rounded-full overflow-hidden"><motion.div animate={{ width: ['30%', '85%', '60%'] }} transition={{ duration: 4, repeat: Infinity }} className="h-full bg-corp-red" /></div>
-                        <div className="h-2 w-2/3 bg-corp-red/10 rounded-full overflow-hidden"><motion.div animate={{ width: ['40%', '20%', '55%'] }} transition={{ duration: 3, repeat: Infinity, delay: 1 }} className="h-full bg-corp-red" /></div>
-                      </div>
-                      <div className="mt-auto flex justify-between items-end">
-                        <FileSearch size={24} className="text-corp-red opacity-30" />
-                        <div className="text-[20px] font-serif font-bold text-corp-grey-dark dark:text-white">94.2%</div>
-                      </div>
-                   </div>
-                </div>
+                <button className="flex items-center space-x-2 text-corp-red group font-bold border-b-2 border-corp-red pb-1">
+                  <span>Enterprise Dashboard Access</span>
+                  <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+              <div className="lg:w-1/2">
+                 <div className="bg-corp-grey-light dark:bg-corp-dark-bg/60 border border-corp-grey-light dark:border-white/5 p-6 rounded-xl aspect-video flex flex-col">
+                    <div className="flex justify-between items-center mb-6 border-b border-corp-grey-light dark:border-white/10 pb-4">
+                      <div className="text-[10px] font-bold text-corp-grey uppercase tracking-widest">Live Matrix // TokenPiazza</div>
+                      <div className="text-[10px] text-green-600 font-bold bg-green-50 px-2 py-1 rounded">SYSTEM ONLINE</div>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="h-2 w-full bg-corp-red/10 rounded-full overflow-hidden"><motion.div animate={{ width: ['30%', '85%', '60%'] }} transition={{ duration: 4, repeat: Infinity }} className="h-full bg-corp-red" /></div>
+                      <div className="h-2 w-2/3 bg-corp-red/10 rounded-full overflow-hidden"><motion.div animate={{ width: ['40%', '20%', '55%'] }} transition={{ duration: 3, repeat: Infinity, delay: 1 }} className="h-full bg-corp-red" /></div>
+                    </div>
+                    <div className="mt-auto flex justify-between items-end">
+                      <FileSearch size={24} className="text-corp-red opacity-30" />
+                      <div className="text-[20px] font-serif font-bold text-corp-grey-dark dark:text-white">94.2%</div>
+                    </div>
+                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* CASE STUDIES */}
+        {/* CASE STUDIES: Mapping from t.caseStudies.items */}
         <section id="case-studies" className="section-container bg-corp-grey-light dark:bg-white/5 rounded-3xl py-24 mb-24 px-12">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-display font-bold mb-6">{t.caseStudies.title}</h2>
             <div className="accent-line mx-auto" />
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item) => (
-              <div key={item} className="bg-white dark:bg-corp-dark-bg p-8 rounded-xl shadow-sm border border-corp-grey-light dark:border-white/5">
+            {t.caseStudies.items.map((item, i) => (
+              <div key={i} className="bg-white dark:bg-corp-dark-bg p-8 rounded-xl shadow-sm border border-corp-grey-light dark:border-white/5">
                 <div className="text-corp-red mb-4"><Award size={24} /></div>
-                <h3 className="text-xl font-display font-bold mb-4">Success Story {item}</h3>
-                <p className="text-sm text-corp-grey dark:text-gray-400 mb-6 leading-relaxed">Scaling data infrastructure for multi-regional enterprise deployment.</p>
+                <h3 className="text-xl font-display font-bold mb-4 text-black dark:text-white">{item.title}</h3>
+                <p className="text-sm text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                  {item.desc}
+                </p>
                 <button className="flex items-center space-x-2 text-corp-red group font-bold border-b-2 border-corp-red pb-1 text-xs">
-                  <span>View Case Study</span>
+                  <span>{item.cta}</span>
                   <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
@@ -251,13 +253,12 @@ export default function App() {
           </div>
         </section>
 
-        {/* ABOUT SECTION */}
+        {/* ABOUT */}
         <section id="about" className="section-container border-t border-corp-grey-light dark:border-white/10 pt-32 pb-24">
           <div className="grid lg:grid-cols-2 gap-16">
             <div>
               <h2 className="text-4xl font-display font-bold mb-10 leading-tight">
-                {t.about.title.split(' ').slice(0, 3).join(' ')} <br />
-                <span className="text-corp-red">{t.about.title.split(' ').slice(3).join(' ')}</span>
+                {t.about.title}
               </h2>
               <div className="accent-line mb-10" />
             </div>
@@ -267,7 +268,7 @@ export default function App() {
                 <div>
                   <div className="text-corp-red mb-4"><ShieldCheck size={24} /></div>
                   <h4 className="text-sm font-bold uppercase tracking-widest mb-2">Security</h4>
-                  <p className="text-xs text-corp-grey leading-relaxed">Enterprise-grade protection with HK-based data sovereignty.</p>
+                  <p className="text-xs text-corp-grey leading-relaxed">Enterprise-grade protection with HK-based sovereignty.</p>
                 </div>
                 <div>
                   <div className="text-corp-red mb-4"><Building2 size={24} /></div>
@@ -298,19 +299,19 @@ export default function App() {
               <p className="text-[10px] text-gray-500 uppercase tracking-[0.2em] leading-relaxed max-w-xs">{t.footer.slogan}</p>
             </div>
             <div className="text-xs font-bold uppercase tracking-widest space-y-4">
-              <p className="text-corp-grey mb-6 tracking-[0.3em]">Navigation</p>
-              <a href="#solutions" className="block hover:text-corp-red transition-colors">Solutions</a>
-              <a href="#about" className="block hover:text-corp-red transition-colors">About</a>
+              <p className="text-corp-grey mb-6 tracking-[0.3em]">{t.footer.navigation}</p>
+              <a href="#solutions" className="block hover:text-corp-red transition-colors">{t.nav.solutions}</a>
+              <a href="#about" className="block hover:text-corp-red transition-colors">{t.nav.about}</a>
             </div>
             <div className="text-xs font-bold uppercase tracking-widest space-y-4 text-gray-500">
-              <p className="text-corp-grey mb-6 tracking-[0.3em]">Legal</p>
+              <p className="text-corp-grey mb-6 tracking-[0.3em]">{t.footer.legal}</p>
               <span className="block">{t.footer.privacy}</span>
               <span className="block">{t.footer.terms}</span>
             </div>
           </div>
           <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 text-[8px] font-bold tracking-[0.4em] text-gray-600 uppercase flex justify-between">
             <span>{t.footer.copy}</span>
-            <span className="flex items-center"><Globe size={10} className="mr-2" /> Global Presence // HK HQ</span>
+            <span className="flex items-center"><Globe size={10} className="mr-2" /> HK HQ</span>
           </div>
         </footer>
       </main>
