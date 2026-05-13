@@ -32,6 +32,7 @@ export interface Translations {
     title: string;
     desc: string;
     features: string[];
+    cta: string; // New Field
   };
   caseStudies: {
     title: string;
@@ -70,55 +71,56 @@ export const translations: Record<Language, Translations> = {
     nav: { solutions: 'Solutions', about: 'About' },
     hero: {
       title: 'Transform Complex Data Into Actionable Insights',
-      subtitle: 'Enterprise-Grade AI Solutions for high-impact digital transformation.',
-      cta: 'Schedule a Demo',
-      secondaryCta: 'Expert Consultation',
+      subtitle: 'Enterprise-Grade AI and Data Analytics Solutions powered by Digicore. We help financial institutions and global enterprises navigate the future of digital assets.',
+      cta: 'Explore Solutions',
+      secondaryCta: 'View Platform',
     },
     valueProp: {
-      title: 'Key Differentiators',
-      philosophy: '"Our philosophy is simple: architecture determines outcomes. We build bridges between complex data and clear decisions."',
+      title: 'Our Core Philosophy',
+      philosophy: 'We believe that the future of finance is built on transparency, speed, and uncompromising security.',
       items: [
-        { title: 'Instant Scalability', desc: 'Deploy in minutes, scale to millions of requests instantly with our cloud-native microservices.' },
-        { title: 'Predictive Accuracy', desc: '95%+ forecast accuracy with pre-built models for financial risk and supply chain optimization.' },
-        { title: 'Bank-Grade Security', desc: 'SOC 2 Type II certified with zero-trust architecture, ensuring the highest data standards.' },
-        { title: 'Integrate in Hours', desc: 'Connect with your existing stack in hours with our extensive API library.' },
-      ],
+        { title: 'Intelligence First', desc: 'Advanced neural networks tailored for high-frequency financial data processing.' },
+        { title: 'Scalable Growth', desc: 'Infrastructure designed to evolve with your enterprise as global markets shift.' },
+        { title: 'Zero-Trust Security', desc: 'Military-grade encryption and privacy protocols at every layer of the stack.' },
+        { title: 'Seamless Access', desc: 'Unified API gateway for effortless integration with existing legacy systems.' }
+      ]
     },
     solutions: {
-      title: 'Solutions Overview',
-      subtitle: 'We offer expert, end-to-end solutions to accelerate your digital transformation:',
+      title: 'Enterprise Ecosystem',
+      subtitle: 'Comprehensive modular solutions designed for the modern digital economy.',
       items: [
-        { title: 'SaaS Strategy', desc: 'Reduce time-to-market by 40% with our proven roadmap methodology.' },
-        { title: 'Proactive Security', desc: 'Identify and remediate 95% of vulnerabilities before they can be exploited.' },
-        { title: 'Smarter Workflows', desc: 'Increase team productivity by 30% with custom AI workflows.' },
-        { title: 'Seamless Integration', desc: 'Eliminate data silos and reduce operational costs by 25%.' },
-      ],
+        { title: 'Predictive Analytics', desc: 'Real-time market sentiment and trend forecasting using proprietary LLMs.' },
+        { title: 'Asset Tokenization', desc: 'End-to-end lifecycle management for RWA and digital native assets.' },
+        { title: 'Risk Compliance', desc: 'Automated AML/KYT monitoring with instantaneous regulatory reporting.' },
+        { title: 'Liquidity Routing', desc: 'Smart order execution across fragmented global liquidity pools.' }
+      ]
     },
     product: {
       sectionHeading: 'Flagship Product',
-      title: 'TokenPiazza',
-      desc: 'Our unified orchestration layer eliminates vendor lock-in by providing universal access to leading AI models through one API. Reduce integration time by 70% while maintaining enterprise governance.',
-      features: ['Multi-model routing', 'Usage analytics', 'Enterprise Auth', 'Rate limiting', 'Universal API access', '70% faster integration'],
+      title: 'TokenPiazza Enterprise',
+      desc: 'The industry-standard dashboard for digital asset management and real-time on-chain intelligence.',
+      features: ['Multi-Model Routing', 'Usage Analytics', 'Enterprise Auth', 'Rate Limiting', 'Universal API', '70% Faster Integration'],
+      cta: 'Explore TokenPiazza...',
     },
     caseStudies: {
-      title: 'Case Studies & Success Stories',
+      title: 'Case Studies',
       items: [
-        { title: 'Global Financial Logistics', desc: 'Scaling data infrastructure for multi-regional enterprise deployment. Optimizing vertical clusters for high-performance throughput.', cta: 'Read Full Story' },
-        { title: 'Predictive Supply Chain', desc: 'Implementing real-time demand forecasting for a Fortune 500 retailer, reducing inventory overhead by 25%.', cta: 'Read Full Story' },
-        { title: 'Zero-Trust AI Security', desc: 'Hardening LLM deployments with custom orchestration layers to meet strict banking compliance standards.', cta: 'Read Full Story' }
+        { title: 'Global Finance Logistics', desc: 'Scaling data infrastructure for multi-regional deployment.', cta: 'Read Full Story' },
+        { title: 'Predictive Supply Chain', desc: 'Demand forecasting that reduced inventory costs by 25%.', cta: 'Read Full Story' },
+        { title: 'Zero-Trust AI Security', desc: 'Hardening LLM deployments for banking compliance.', cta: 'Read Full Story' }
       ]
     },
     about: {
-      title: 'Hong Kong-Based Experts in AI and Data Security',
-      content: 'Founded in Hong Kong by data scientists and cybersecurity specialists, Digicore fuses deep analytics with a security-by-design mindset.',
+      title: 'Hong Kong-Based Experts in AI & Data Security',
+      content: 'Founded in Hong Kong by a team of data scientists and cybersecurity specialists, Digicore Technology Limited bridges deep analytical expertise with a security-first approach. We bring enterprise quality to innovative startups and growing firms.',
       features: {
-        security: { title: 'Security', desc: 'Enterprise-grade protection with HK-based data sovereignty.' },
+        security: { title: 'Security', desc: 'Enterprise protection with data sovereignty in HK.' },
         heritage: { title: 'Heritage', desc: 'Founded by industry veterans in Hong Kong.' }
       }
     },
     ctaBanner: {
-      title: 'Ready to Transform Your Data?',
-      primaryCta: 'Schedule a Demo',
+      title: 'Ready to transform your data?',
+      primaryCta: 'Book a Demo',
       secondaryCta: 'Contact Sales',
     },
     footer: {
@@ -127,63 +129,64 @@ export const translations: Record<Language, Translations> = {
       legal: 'Legal',
       privacy: 'Privacy Protocol',
       terms: 'Terms of Service',
-      security: 'Security Audit 2026',
-      slogan: 'Redefining the digital frontier.'
+      security: '2026 Security Audit',
+      slogan: 'Redefining Digital Intelligence.',
     },
   },
   'zh-TW': {
     nav: { solutions: '解決方案', about: '關於我們' },
     hero: {
-      title: '將複雜數據轉化為可執行的洞察',
-      subtitle: '企業級 AI 解決方案，推動高影響力的數位轉型。',
-      cta: '預約示範',
-      secondaryCta: '專家諮詢',
+      title: '將複雜數據轉化為具前瞻性的洞察',
+      subtitle: '由 Digicore 驅動的企業級 AI 和數據分析解決方案。我們協助金融機構與全球企業導航數字資產的未來。',
+      cta: '探索方案',
+      secondaryCta: '查看平台',
     },
     valueProp: {
-      title: '關鍵差異化因素',
-      philosophy: '"我們的理念很簡單：架構決定結果。我們在複雜數據和明確決策之間搭建橋樑。"',
+      title: '核心理念',
+      philosophy: '我們相信未來的金融建立在透明、速度和絕不妥協的安全性之上。',
       items: [
-        { title: '微服務即時擴展', desc: '透過我們的雲原生微服務架構，幾分鐘內部署，瞬間擴展到百萬級請求。' },
-        { title: '值得信賴的預測準確性', desc: '預建模型在金融風險和需求規劃方面達到 95% 以上的準確率。' },
-        { title: '銀行級安全', desc: 'SOC 2 Type II 認證，採用零信任架構，確保數據符合最高安全標準。' },
-        { title: '幾小時內整合', desc: '透過我們廣泛的 API 庫，在幾小時內與您現有的技術棧連接。' },
-      ],
+        { title: '智能優先', desc: '專為高頻金融數據處理設計的先進神經網絡。' },
+        { title: '可擴展增長', desc: '隨全球市場變化而進化的企業級基礎設施。' },
+        { title: '零信任安全', desc: '在技術堆棧的每一層均採用軍用級加密和隱私協議。' },
+        { title: '無縫接入', desc: '統一 API 網關，實現與現有舊系統的輕鬆集成。' }
+      ]
     },
     solutions: {
-      title: '解決方案概覽',
-      subtitle: '我們提供專業的端到端解決方案，加速您的數位轉型：',
+      title: '企業生態系統',
+      subtitle: '專為現代數字經濟設計的全面模塊化解決方案。',
       items: [
-        { title: '帶來投資回報的 SaaS 策略', desc: '透過我們經過驗證的路線圖方法，將上市時間縮短 40%。' },
-        { title: '主動防禦的安全措施', desc: '在漏洞被利用之前識別並修復 95% 的漏洞。' },
-        { title: '更智能的工作流程', desc: '通過定制 AI 工作流程自動化重複性任務，使生產力提高 30%。' },
-        { title: '無縫協作的系統', desc: '通過我們的集成方法消除數據孤島並將運營成本降低 25%。' },
-      ],
+        { title: '預測性分析', desc: '使用專有大語言模型進行實時市場情緒和趨勢預測。' },
+        { title: '資產代幣化', desc: '現實世界資產 (RWA) 和原生數字資產的全生命週期管理。' },
+        { title: '風險合規', desc: '自動化 AML/KYT 監控及即時監管報告。' },
+        { title: '流動性路由', desc: '在破碎的全球流動性池中實現智能訂單執行。' }
+      ]
     },
     product: {
       sectionHeading: '旗艦產品',
-      title: 'TokenPiazza',
-      desc: '我們統一的編排層透過單一 API 提供對領先 AI 模型的通用訪問。減少 70% 的整合時間，同時保持企業級治理。',
-      features: ['多模型路由', '使用量分析', '企業認證', '速率限制', '通用 API 訪問', '集成速度快 70%'],
+      title: 'TokenPiazza 企業版',
+      desc: '數字資產管理和實時鏈上情報的行業標準儀表板。',
+      features: ['多模型路由', '使用量分析', '企業級認證', '速率限制', '通用 API', '集成速度提升 70%'],
+      cta: '探索 TokenPiazza...',
     },
     caseStudies: {
-      title: '案例研究與成功故事',
+      title: '案例研究',
       items: [
-        { title: '全球金融物流', desc: '為多區域企業部署擴展數據基礎設施。優化垂直集群以實現高性能吞吐量。', cta: '閱讀完整故事' },
-        { title: '預測性供應鏈', desc: '為財富 500 強零售商實施實時需求預測，將庫存開銷減少了 25%。', cta: '閱讀完整故事' },
-        { title: '零信任 AI 安全', desc: '使用自定義編排層加固 LLM 部署，以滿足嚴格的銀行合規標準。', cta: '閱讀完整故事' }
+        { title: '全球金融物流', desc: '為跨區域部署擴展數據基礎設施。', cta: '閱讀全文' },
+        { title: '預測性供應鏈', desc: '需求預測使庫存成本降低了 25%。', cta: '閱讀全文' },
+        { title: '零信任 AI 安全', desc: '強化大語言模型部署以符合銀行合規要求。', cta: '閱讀全文' }
       ]
     },
     about: {
-      title: '香港的人工智能和數據安全專家',
-      content: '由數據科學家和網絡安全專家在香港創立，Digicore 將深度分析與安全設計思維相結合。',
+      title: '總部位於香港的 AI 與數據安全專家',
+      content: 'Digicore Technology Limited 由數據科學家和網絡安全專家團隊在香港創立，將深厚的分析專業知識與安全優先的方法相結合。我們為創新初創公司和成長中的企業提供企業級品質。',
       features: {
-        security: { title: '安全保障', desc: '提供基於香港數據主權的企業級保護。' },
-        heritage: { title: '產業傳承', desc: '由香港資深產業專家創立。' }
+        security: { title: '安全性', desc: '在香港境內擁有數據主權的企業級保護。' },
+        heritage: { title: '傳承', desc: '由香港行業資深人士創立。' }
       }
     },
     ctaBanner: {
-      title: '準備好將您的數據轉化為洞察了嗎？',
-      primaryCta: '預約示範',
+      title: '準備好轉化您的數據了嗎？',
+      primaryCta: '預約演示',
       secondaryCta: '聯繫銷售',
     },
     footer: {
@@ -192,43 +195,44 @@ export const translations: Record<Language, Translations> = {
       legal: '法律',
       privacy: '隱私協議',
       terms: '服務條款',
-      security: '2026年安全審計',
-      slogan: '以尖端解決方案重新定義數字前沿。'
+      security: '2026 安全審計',
+      slogan: '重新定義數字智能。',
     },
   },
   DE: {
     nav: { solutions: 'Lösungen', about: 'Über uns' },
     hero: {
-      title: 'Verwandeln Sie komplexe Daten in Erkenntnisse',
-      subtitle: 'KI-Lösungen für Unternehmen für eine wirkungsvolle digitale Transformation.',
-      cta: 'Demo vereinbaren',
-      secondaryCta: 'Expertenberatung',
+      title: 'Komplexe Daten in umsetzbare Erkenntnisse verwandeln',
+      subtitle: 'KI- und Datenanalyselösungen für Unternehmen von Digicore. Wir unterstützen Finanzinstitute und globale Unternehmen bei der Navigation in die Zukunft digitaler Assets.',
+      cta: 'Lösungen erkunden',
+      secondaryCta: 'Plattform ansehen',
     },
     valueProp: {
-      title: 'Differenzierungsmerkmale',
-      philosophy: '"Unsere Philosophie ist einfach: Architektur bestimmt Ergebnisse. Wir bauen Brücken zwischen komplexen Daten und klaren Entscheidungen."',
+      title: 'Unsere Kernphilosophie',
+      philosophy: 'Wir glauben, dass die Zukunft der Finanzen auf Transparenz, Geschwindigkeit und kompromissloser Sicherheit basiert.',
       items: [
-        { title: 'Sofortige Skalierbarkeit', desc: 'In Minuten bereitstellen mit unserer Cloud-native-Microservices-Architektur.' },
-        { title: 'Vorhersagegenauigkeit', desc: '95%+ Genauigkeit mit vorgefertigten Modellen für Finanzrisiken.' },
-        { title: 'Bankähnliche Sicherheit', desc: 'SOC 2 Type II zertifiziert mit Zero-Trust-Architektur.' },
-        { title: 'Schnelle Integration', desc: 'Verbinden Sie sich in Stunden mit Ihrem bestehenden Stack.' },
-      ],
+        { title: 'Intelligenz Zuerst', desc: 'Fortschrittliche neuronale Netze für die Hochfrequenz-Finanzdatenverarbeitung.' },
+        { title: 'Skalierbares Wachstum', desc: 'Infrastruktur, die sich mit Ihrem Unternehmen entwickelt, wenn sich globale Märkte verschieben.' },
+        { title: 'Zero-Trust-Sicherheit', desc: 'Verschlüsselung und Datenschutzprotokolle auf Militärniveau auf jeder Ebene.' },
+        { title: 'Nahtloser Zugang', desc: 'Einheitliches API-Gateway für die mühelose Integration in bestehende Altsysteme.' }
+      ]
     },
     solutions: {
-      title: 'Lösungsüberblick',
-      subtitle: 'Wir bieten maßgeschneiderte End-to-End-Lösungen:',
+      title: 'Enterprise-Ökosystem',
+      subtitle: 'Umfassende modulare Lösungen für die moderne digitale Wirtschaft.',
       items: [
-        { title: 'SaaS-Strategie', desc: 'Reduzieren Sie die Markteinführungszeit um 40%.' },
-        { title: 'Proaktive Sicherheit', desc: 'Identifizieren und beheben Sie 95% der Schwachstellen.' },
-        { title: 'KI-Arbeitsabläufe', desc: 'Steigern Sie die Teamproduktivität um 30%.' },
-        { title: 'Systemintegration', desc: 'Beseitigen Sie Datensilos und reduzieren Sie Kosten um 25%.' },
-      ],
+        { title: 'Prädiktive Analytik', desc: 'Marktstimmung und Trendprognosen in Echtzeit mit proprietären LLMs.' },
+        { title: 'Asset-Tokenisierung', desc: 'End-to-End-Lebenszyklusmanagement für RWA und digital native Assets.' },
+        { title: 'Risiko-Compliance', desc: 'Automatisierte AML/KYT-Überwachung mit sofortiger Berichterstattung.' },
+        { title: 'Liquiditäts-Routing', desc: 'Intelligente Auftragsausführung über fragmentierte globale Liquiditätspools hinweg.' }
+      ]
     },
     product: {
       sectionHeading: 'Flaggschiff-Produkt',
-      title: 'TokenPiazza',
-      desc: 'Unsere Orchestrierungsschicht bietet universellen Zugriff auf KI-Modelle über eine API. Reduzieren Sie die Integrationszeit um 70%.',
-      features: ['Multi-Modell-Routing', 'Nutzungsanalysen', 'Enterprise Auth', 'Ratenbegrenzung', 'API-Zugriff', '70% schneller'],
+      title: 'TokenPiazza Enterprise',
+      desc: 'Das branchenübliche Dashboard für das Management digitaler Assets und Echtzeit-On-Chain-Intelligence.',
+      features: ['Multi-Modell-Routing', 'Nutzungsanalysen', 'Enterprise Auth', 'Ratenbegrenzung', 'Universeller API-Zugriff', '70% schneller'],
+      cta: 'TokenPiazza erkunden...',
     },
     caseStudies: {
       title: 'Fallstudien & Erfolgsgeschichten',
@@ -255,10 +259,10 @@ export const translations: Record<Language, Translations> = {
       copy: '© 2026 Digicore Technology Limited. Alle Rechte vorbehalten.',
       navigation: 'Navigation',
       legal: 'Rechtliches',
-      privacy: 'Datenschutz',
+      privacy: 'Datenschutzprotokoll',
       terms: 'Nutzungsbedingungen',
-      security: 'Sicherheitsaudit 2026',
-      slogan: 'Neudefinition digitaler Grenzen.'
+      security: '2026 Sicherheitsaudit',
+      slogan: 'Neudefinition digitaler Intelligenz.',
     },
   },
 };

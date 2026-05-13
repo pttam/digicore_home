@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import {
   Building2,
   ShieldCheck,
@@ -37,6 +37,9 @@ export default function App() {
     { name: t.nav.about, href: '#about' },
   ];
 
+  // Helper to display '繁' instead of 'zh-TW'
+  const getLangLabel = (l: Language) => (l === 'zh-TW' ? '繁' : l);
+
   return (
     <div className={`min-h-screen transition-colors duration-500 font-sans ${isDark ? 'bg-corp-dark-bg text-white dark' : 'bg-white text-corp-grey-dark'}`}>
       
@@ -47,6 +50,7 @@ export default function App() {
             <img src="/images/logo.png" alt="Digicore logo" className="h-8 object-contain" />
           </motion.div>
 
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-10">
             <div className="flex space-x-8">
               {navLinks.map((link) => (
@@ -63,7 +67,7 @@ export default function App() {
                     onClick={() => setLang(l)} 
                     className={`transition-colors ${lang === l ? 'text-corp-red' : 'text-corp-grey hover:text-corp-grey-dark'}`}
                   >
-                    {l}
+                    {getLangLabel(l)}
                   </button>
                 ))}
               </div>
@@ -72,10 +76,54 @@ export default function App() {
               </button>
             </div>
           </div>
+
+          {/* Mobile Hamburger Button */}
           <button className="md:hidden text-corp-grey-dark" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
+
+        {/* MOBILE PULLDOWN MENU */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden bg-white border-t border-corp-grey-light overflow-hidden"
+            >
+              <div className="px-6 py-8 flex flex-col space-y-6">
+                {navLinks.map((link) => (
+                  <a 
+                    key={link.name} 
+                    href={link.href} 
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-sm font-bold uppercase tracking-widest text-corp-grey-dark hover:text-corp-red"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+
+                <div className="pt-6 border-t border-corp-grey-light flex justify-between items-center">
+                  <div className="flex space-x-4 text-xs font-bold uppercase tracking-widest">
+                    {(['EN', 'zh-TW', 'DE'] as Language[]).map((l) => (
+                      <button 
+                        key={l} 
+                        onClick={() => { setLang(l); setIsMenuOpen(false); }} 
+                        className={lang === l ? 'text-corp-red' : 'text-corp-grey'}
+                      >
+                        {getLangLabel(l)}
+                      </button>
+                    ))}
+                  </div>
+                  <button onClick={toggleTheme} className="p-2 text-corp-grey-dark">
+                    {isDark ? <Sun size={20} /> : <Moon size={20} />}
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       <main className="relative z-10">
@@ -204,10 +252,16 @@ export default function App() {
                     </div>
                   ))}
                 </div>
-                <button className="flex items-center space-x-2 text-corp-red group font-bold border-b-2 border-corp-red pb-1">
-                  <span>Enterprise Dashboard Access</span>
+                {/* UPDATED LINK BUTTON */}
+                <a 
+                  href="https://www.tokenpiazza.ai" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 text-corp-red group font-bold border-b-2 border-corp-red pb-1"
+                >
+                  <span>{t.product.cta}</span>
                   <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </button>
+                </a>
               </div>
               <div className="lg:w-1/2">
                  <div className="bg-corp-grey-light dark:bg-corp-dark-bg/60 border border-corp-grey-light dark:border-white/5 p-6 rounded-xl aspect-video flex flex-col">
@@ -264,13 +318,11 @@ export default function App() {
             <div>
               <p className="text-xl text-corp-grey dark:text-gray-400 leading-relaxed mb-12">{t.about.content}</p>
               <div className="grid grid-cols-2 gap-12">
-                {/* Security Card */}
                 <div>
                   <div className="text-corp-red mb-4"><ShieldCheck size={24} /></div>
                   <h4 className="text-sm font-bold uppercase tracking-widest mb-2">{t.about.features.security.title}</h4>
                   <p className="text-xs text-corp-grey leading-relaxed">{t.about.features.security.desc}</p>
                 </div>
-                {/* Heritage Card */}
                 <div>
                   <div className="text-corp-red mb-4"><Building2 size={24} /></div>
                   <h4 className="text-sm font-bold uppercase tracking-widest mb-2">{t.about.features.heritage.title}</h4>
