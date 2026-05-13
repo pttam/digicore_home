@@ -208,7 +208,7 @@ export const translations: Record<Language, Translations> = {
       secondaryCta: 'Expertenberatung',
     },
     valueProp: {
-      title: 'Differenzierungsmerkmale',
+      title: 'Unsere Vorteile',
       philosophy: '"Unsere Philosophie ist einfach: Architektur bestimmt Ergebnisse. Wir bauen Brücken zwischen komplexen Daten und klaren Entscheidungen."',
       items: [
         { title: 'Sofortige Skalierbarkeit', desc: 'In Minuten bereitstellen mit unserer Cloud-native-Microservices-Architektur.' },
