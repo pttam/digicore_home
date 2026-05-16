@@ -1,0 +1,4 @@
+{
+  "autoMemoryDirectory": ".claude/memory",
+  "planDir": ".claude/plans"
+}

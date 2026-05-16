@@ -1,0 +1,1 @@
+- [Website Content Improvement and Layout Restructuring Plan](robust-yawning-spark.md) — plan for improving website content and restructuring layout.
